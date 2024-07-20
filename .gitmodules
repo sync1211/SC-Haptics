@@ -1,0 +1,6 @@
+[submodule "tact-python"]
+	path = tact-python
+	url = https://github.com/bhaptics/tact-python
+[submodule "tactPython"]
+	path = tactPython
+	url = https://github.com/bhaptics/tact-python
