@@ -144,20 +144,26 @@ def haptics_loop(update_delay: int = 100, mouse_m_hold_duration: int = 1000):
             if ship.currentMode == ShipMode.WEAPON or ship.currentMode == ShipMode.MISSILE:
                 last_scm_mode = ship.currentMode
                 ship.currentMode = last_nav_mode
+                print("Switched to NAV")
             else:
                 last_nav_mode = ship.currentMode
                 ship.currentMode = last_scm_mode
+                print("Switched to SCM")
 
         elif mouse_m_hold > 0: # Short press -> (Weapon / Missile) / (Flight / Quantum)
 
             if ship.currentMode == ShipMode.WEAPON:
                 ship.currentMode = ShipMode.MISSILE
+                print("Mode: Missiles")
             elif ship.currentMode == ShipMode.MISSILE:
                 ship.currentMode = ShipMode.WEAPON
+                print("Mode: Weapons")
             elif ship.currentMode == ShipMode.FLIGHT:
                 ship.currentMode = ShipMode.QUANTUM
+                print("Mode: Quantum")
             elif ship.currentMode == ShipMode.QUANTUM:
                 ship.currentMode = ShipMode.FLIGHT
+                print("Mode: Flight")
 
             mouse_m_hold = 0
         else:
